@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Tortila — Cheese, BBQ & Salted Egg</title>
+<meta name="description" content="Royal Tortila — crunchy tortilla cheese, BBQ & salted egg chips. Rangup, sedap, penuh dengan bold flavor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0a0806;
+    --black-2: #120e0a;
+    --black-3: #17120c;
+    --gold: #d8a83e;
+    --gold-bright: #f0c860;
+    --cream: #f3ead8;
+    --grey: #b9b2a4;
+    --line: rgba(216,168,62,0.22);
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+  .texture{
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(216,168,62,0.06), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(216,168,62,0.05), transparent 45%);
+  }
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(10,8,6,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 76px;
+  }
+  .brand{
+    font-family:'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    color: var(--gold-bright);
+  }
+  .navlinks{ display:flex; gap: 36px; align-items:center; }
+  .navlinks a{
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--grey);
+    transition: color 0.2s ease;
+  }
+  .navlinks a:hover{ color: var(--gold-bright); }
+  .navcta{
+    background: var(--gold);
+    color: var(--black);
+    padding: 10px 22px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .navcta:hover{ background: var(--gold-bright); transform: translateY(-1px); }
+  .menutoggle{ display:none; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer; }
+  
+  .hero{
+    padding: 100px 0 110px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero .wrap{
+    display:flex;
+    gap: 64px;
+    align-items:center;
+  }
+  .hero .wrap > div:first-child{ flex: 1.05; min-width: 0; }
+  .crown-mark{ font-size: 1.4rem; margin-bottom: 22px; opacity:0.9; }
+  .kicker{
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    color: var(--cream);
+  }
+  .hero h1 span{ color: var(--gold-bright); }
+  .hero p.lede{
+    margin-top: 24px;
+    max-width: 46ch;
+    color: var(--grey);
+    font-size: 1.08rem;
+  }
+  .btnrow{ display:flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+  .btn{
+    display:inline-block;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-align: center;
+    transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-solid{ background: var(--gold); color: var(--black); }
+  .btn-solid:hover{ background: var(--gold-bright); transform: translateY(-2px); }
+  .btn-outline{ border: 1px solid var(--line); color: var(--cream); }
+  .btn-outline:hover{ border-color: var(--gold); color: var(--gold-bright); }
+  
+  /* KOTAK HERO DISERAGAMKAN KEPADA SEGI EMPAT SAMA (1/1) */
+  .hero-art{
+    flex: 0.95; min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    background: #000000;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-art img, .product-card-visual img, .gallery-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  section{ padding: 110px 0; }
+  .section-head{ max-width: 640px; margin-bottom: 56px; }
+  .section-head h2{ font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
+  .section-head h2 .accent{ color: var(--gold-bright); }
+  .section-head p{ color: var(--grey); margin-top: 18px; font-size: 1.02rem; }
+  
+  /* ABOUT SECTION STYLES */
+  .about{ border-bottom: 1px solid var(--line); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-text-content h3 {
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .about-text-content p {
+    color: var(--grey);
+    font-size: 0.98rem;
+    margin-bottom: 16px;
+  }
+  .about-feature-box {
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  .about-feature-box h4 {
+    font-size: 1.1rem;
+    color: var(--gold-bright);
+    margin-bottom: 12px;
+  }
+  .about-feature-box ul {
+    color: var(--grey);
+    font-size: 0.92rem;
+    padding-left: 20px;
+    line-height: 1.8;
+    margin: 0;
+  }
+  
+  .product{ border-bottom: 1px solid var(--line); }
+  .product-split-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .product-card {
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .product-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  
+  /* KOTAK PRODUK DISERAGAMKAN KEPADA SEGI EMPAT SAMA (1/1) */
+  .product-card-visual {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #000000;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  
+  .product-card h3 {
+    font-size: 1.4rem;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .product-card .sub-variant {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .product-card h4 {
+    font-size: 1.05rem;
+    color: var(--gold-bright);
+    margin-bottom: 10px;
+  }
+  .product-card p {
+    color: var(--grey);
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  /* REVIEW SECTION STYLES */
+  .reviews { border-bottom: 1px solid var(--line); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .review-card {
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .review-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .review-stars {
+    color: var(--gold-bright);
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .review-text {
+    color: var(--grey);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+  .review-author {
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .review-author h4 {
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 2px;
+  }
+  .review-author span {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* 🖼️ 3 KOTAK GAMBAR / GALLERY SECTION STYLES */
+  .gallery { border-bottom: 1px solid var(--line); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .gallery-card {
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .gallery-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .gallery-card-visual {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #000000;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .gallery-card h4 {
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .gallery-card p {
+    color: var(--grey);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .whyus{ border-bottom: 1px solid var(--line); }
+  .cards{
+    display:flex;
+    gap: 24px;
+  }
+  .cards .card{ flex: 1; min-width: 0; }
+  .card{
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 34px 30px;
+  }
+  .card .icon{ font-size: 1.6rem; margin-bottom: 20px; display:block; }
+  .card h4{
+    font-family:'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .card p{ color: var(--grey); font-size: 0.95rem; margin:0; }
+  
+  .contact-grid{
+    display:flex;
+    gap: 48px;
+    align-items:flex-start;
+  }
+  .contact-grid > div:first-child{ flex: 1.1; min-width: 0; }
+  .contact-card{
+    flex: 0.9; min-width: 0;
+    background: var(--black-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 36px;
+  }
+  .contact-card .brand{ display:block; margin-bottom: 6px; }
+  .contact-card .sub{ color: var(--grey); font-size: 0.92rem; margin-bottom: 4px; }
+  .contact-card .sub-group { margin-bottom: 22px; }
+  .contact-line{
+    display:flex; align-items:center; gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .contact-line:last-child{ border-bottom: 1px solid var(--line); }
+  .contact-line a:hover{ color: var(--gold-bright); }
+  
+  footer{
+    padding: 34px 0;
+    text-align:center;
+    color: var(--grey);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 960px){
+    .product-split-grid, .reviews-grid, .gallery-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  @media (max-width: 880px){
+    .navlinks{
+      display: none;
+      position: absolute;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: var(--black-2);
+      flex-direction: column;
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--line);
+      gap: 18px;
+    }
+    .navlinks.active { display: flex; }
+    .menutoggle{ display:block; }
+    .hero .wrap, .contact-grid, .cards{ flex-direction: column; align-items: stretch; }
+    .hero{ padding: 60px 0 70px; }
+    section{ padding: 70px 0; }
+    .hero-art{ order: -1; aspect-ratio: 1/1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <span class="brand">ROYAL TORTILA</span>
+    <button class="menutoggle" aria-label="Toggle navigation">☰</button>
+    <div class="navlinks" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#product">Products</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#why">Why Us</a>
+      <a href="https://www.instagram.com/royaltortilla/" target="_blank" rel="noopener">Instagram</a>
+      <a class="navcta" href="https://wa.link/5j55ne" target="_blank" rel="noopener">Order</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero texture">
+  <div class="wrap">
+    <div>
+      <div class="crown-mark">👑</div>
+      <div class="kicker">3 ROYAL SIGNATURE FLAVOURS</div>
+      <h1>Snack like<br><span>royalty.</span></h1>
+      <p class="lede">Rangup, sedap dan penuh dengan bold flavor. Pilih daripada Cheese, BBQ, atau Salted Egg.</p>
+      <div class="btnrow">
+        <a class="btn btn-solid" href="https://wa.link/5j55ne" target="_blank" rel="noopener">Order Now</a>
+        <a class="btn btn-outline" href="#product">View Products</a>
+      </div>
+    </div>
+    
+    <!-- 🖼️ GAMBAR HERO UTAMA -->
+    <div class="hero-art">
+      <img src="logo.jpg.jpeg" alt="Royal Tortila Hero Banner">
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section class="about texture" id="about">
+  <div class="wrap">
+    <div class="section-head" style="max-width: 800px; margin-bottom: 32px;">
+      <div class="kicker">ABOUT ROYAL TORTILA</div>
+      <h2>Bold flavour. <span class="accent">Royal crunch.</span></h2>
+      <p>Royal Tortila lebih daripada sekadar kudapan biasa; ia adalah sebuah perayaan cita rasa premium yang menggabungkan kemewahan rasa dan kerangupan luar biasa, dicipta khas untuk kepuasan seisi keluarga.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text-content">
+        <h3>The Royal Standard of Crunch</h3>
+        <p>
+          Bermula daripada minat mendalam terhadap makanan ringan yang berkualiti tinggi, Royal Tortila membawakan tiga profil perisa utama yang diolah teliti—<strong>Tortilla Cheese</strong> yang lemak berkrim, <strong>Tortilla BBQ</strong> dengan sentuhan salai yang memikat, serta <strong>Salted Egg Chips</strong> yang kaya dengan aroma telur masin asli.
+        </p>
+        <p>
+          Setiap keping kerepek disalut rata dengan adunan perisa premium menggunakan bahan-bahan berkualiti tinggi demi memastikan kerangupan yang berkekalan di setiap gigitan. Sesuai dinikmati pada bila-bila masa, sama ada ketika majlis santai, malam movie, mahupun sebagai hadiah istimewa buat yang tersayang.
+        </p>
+      </div>
+      
+      <div class="about-feature-box">
+        <div style="font-size: 1.5rem; margin-bottom: 16px;">👑 ✨</div>
+        <h4>Our Core Promise</h4>
+        <ul>
+          <li>Bahan-bahan premium pilihan yang berkualiti tinggi</li>
+          <li>Salutkan perisa yang tebal, kaya, dan memukau selera</li>
+          <li>Kerangupan optimum yang segar dalam setiap pek</li>
+          <li>Sesuai dinikmati oleh semua lapisan masyarakat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 KAD PRODUK (CHEESE, BBQ, SALTED EGG) -->
+<section class="product" id="product">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">OUR SIGNATURE SNACK</div>
+      <h2>Choose your <span class="accent">Royal Flavour.</span></h2>
+      <p>Pilih perisa kegemaran anda untuk santapan yang rangup, kaya perisa, dan memukau.</p>
+    </div>
+    
+    <div class="product-split-grid">
+      
+      <!-- Kad 1: Tortila Cheese -->
+      <div class="product-card">
+        <div>
+          <div class="product-card-visual">
+            <img src="https://img.muji.net/img/item/4550002529512_1260.jpg" alt="Royal Tortila Cheese">
+          </div>
+          <h3>Royal Tortila</h3>
+          <div class="sub-variant">TORTILLA CHEESE</div>
+          <h4>Signature Cheese Flavor</h4>
+          <p>Experience the classic, bold, and satisfying crunch of our savory cheese seasoning.</p>
+        </div>
+        <a class="btn btn-solid" style="width:100%;" href="https://wa.link/5j55ne?text=Hi%20Royal%20Tortila,%20saya%20nak%20order%20Tortilla%20Cheese" target="_blank" rel="noopener">ORDER CHEESE</a>
+      </div>
+
+      <!-- Kad 2: Tortila BBQ -->
+      <div class="product-card">
+        <div>
+          <div class="product-card-visual">
+            <img src="https://down-my.img.susercontent.com/file/e6bea14041152b1c03e144d8ca172619" alt="Royal Tortila BBQ">
+          </div>
+          <h3>Royal Tortila</h3>
+          <div class="sub-variant">TORTILLA BBQ</div>
+          <h4>Signature BBQ Flavor</h4>
+          <p>Savor the smoky, spicy, and sweet notes perfectly coated on every crispy bite.</p>
+        </div>
+        <a class="btn btn-solid" style="width:100%;" href="https://wa.link/5j55ne?text=Hi%20Royal%20Tortila,%20saya%20nak%20order%20Tortilla%20BBQ" target="_blank" rel="noopener">ORDER BBQ</a>
+      </div>
+
+      <!-- Kad 3: Salted Egg Chips -->
+      <div class="product-card">
+        <div>
+          <div class="product-card-visual">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrThnsPv6AJPVNqlISCK9pewwv0C_unX_oOq-HebJig&s=10" alt="Royal Tortila Salted Egg Chips">
+          </div>
+          <h3>Royal Tortila</h3>
+          <div class="sub-variant">SALTED EGG CHIPS</div>
+          <h4>Signature Salted Egg</h4>
+          <p>Creamy, rich salted egg aroma with curry leaves hint and an addictive royal crunch.</p>
+        </div>
+        <a class="btn btn-solid" style="width:100%;" href="https://wa.link/5j55ne?text=Hi%20Royal%20Tortila,%20saya%20nak%20order%20Tortilla%20Salted%20Egg" target="_blank" rel="noopener">ORDER SALTED EGG</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW PAGE / TESTIMONIALS SECTION -->
+<section class="reviews texture" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">CUSTOMER REVIEWS</div>
+      <h2>What our <span class="accent">royalty says.</span></h2>
+      <p>Dengar sendiri apa kata mereka yang telah merasai kerangupan dan keunikan perisa Royal Tortila.</p>
+    </div>
+
+    <div class="reviews-grid">
+      
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Sumpah sedap! Perisa Cheese dia tak muak langsung, tebal dan meriah rasa cheese dia. Mesti repeat order lagi lepas ni!"</p>
+        </div>
+        <div class="review-author">
+          <h4>Raz Danish</h4>
+          <span>Verified Buyer (Tortilla Cheese)</span>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Peminat BBQ wajib cuba! Rasa masam manis masin dia balance elok, kerangupan kerepek pun mantap tak masuk angin."</p>
+        </div>
+        <div class="review-author">
+          <h4>Akmal</h4>
+          <span>Verified Buyer (Tortilla BBQ)</span>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Salted Egg dia memang best gila! Aroma daun kari tu naik, rasa lemak telur masin dia betul-betul premium. Recommended sangat!"</p>
+        </div>
+        <div class="review-author">
+          <h4>Danish Yusri</h4>
+          <span>Verified Buyer (Salted Egg Chips)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🖼️ 3 KOTAK GAMBAR (GALLERY / TESTIMONY PHOTOS) DI BAWAH REVIEW -->
+<section class="gallery texture" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">PHOTO GALLERY</div>
+      <h2>Moments of <span class="accent">Royal Crunch.</span></h2>
+      <p>Gambar pilihan koleksi produk dan momen santai bersama Royal Tortila.</p>
+    </div>
+
+    <div class="gallery-grid">
+      
+      <!-- Kotak Gambar 1 -->
+      <div class="gallery-card">
+        <div class="gallery-card-visual">
+          <!-- Gantikan link gambar ini dengan link gambar anda -->
+          <img src="" alt="Gallery 1">
+        </div>
+        <h4>Royal Pack Edition</h4>
+        <p>Pek eksklusif yang siap untuk dinikmati di mana sahaja.</p>
+      </div>
+
+      <!-- Kotak Gambar 2 -->
+      <div class="gallery-card">
+        <div class="gallery-card-visual">
+          <img src="" alt="Gallery 2">
+        </div>
+        <h4>Crispy Texture Close-up</h4>
+        <p>Kerangupan luar biasa disalut penuh dengan perisa pilihan.</p>
+      </div>
+
+      <!-- Kotak Gambar 3 -->
+      <div class="gallery-card">
+        <div class="gallery-card-visual">
+          <!-- Gantikan link gambar ini dengan link gambar anda -->
+          <img src="" alt="Gallery 3">
+        </div>
+        <h4>Snacking Time</h4>
+        <p>Teman terbaik untuk santai malam atau majlis keramaian.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="whyus texture" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">WHY ROYAL TORTILA</div>
+      <h2>Made to <span class="accent">stand out.</span></h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <span class="icon">👑</span>
+        <h4>Royal Identity</h4>
+        <p>A distinctive premium visual identity inspired by the crown and gold of Royal Tortila.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🧀</span>
+        <h4>Bold Profiles</h4>
+        <p>Cheese, BBQ, and Salted Egg options designed for maximum flavour enjoyment.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔥</span>
+        <h4>Crunchy Moment</h4>
+        <p>Great for sharing or enjoying on your own, whenever you need a satisfying snack fix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker">READY TO SNACK?</div>
+      <h2>Get your <span class="accent">Royal Tortila.</span></h2>
+      <p style="color:var(--grey); margin-top:18px; max-width:46ch;">Tap below to place an order via WhatsApp or visit our Facebook/Instagram pages for latest updates and drops.</p>
+      <div class="btnrow">
+        <a class="btn btn-solid" href="https://wa.link/5j55ne" target="_blank" rel="noopener">WhatsApp Now</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <span class="brand">ROYAL TORTILA</span>
+      <div class="sub-group">
+        <div class="sub">Tortilla Cheese</div>
+        <div class="sub">Tortilla BBQ</div>
+        <div class="sub">Salted Egg Chips</div>
+      </div>
+      <div class="contact-line">📘&nbsp; <a href="https://www.facebook.com/profile.php?id=61588765363026" target="_blank" rel="noopener">Order via Facebook</a></div>
+      <div class="contact-line">📣&nbsp; <a href="https://www.facebook.com/profile.php?id=61588765363026" target="_blank" rel="noopener">Promotions & Updates</a></div>
+      <div class="contact-line">📷&nbsp; <a href="https://www.instagram.com/royaltortilla/" target="_blank" rel="noopener">Follow us on Instagram</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  2026 Royal Tortila · Cheese, BBQ & Salted Egg Chips
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menutoggle');
+  const navLinks = document.getElementById('navLinks');
+  if(toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+</script>
+
+</body>
+</html>
